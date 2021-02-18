@@ -16,7 +16,9 @@
             alert('<?= $this->session->flashdata('pesan') ?>')
         </script>
     <?php
+        unset($_SESSION['pesan']);
     }
+    $this->session->unset
     ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">

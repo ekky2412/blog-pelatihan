@@ -62,7 +62,7 @@
             $data = array('id','nama','login');
             $this->session->unset_userdata($data);
             $this->session->set_flashdata('pesan','Anda berhasil Logout!');
-            redirect(base_url(),'refresh');
+            redirect(base_url());
         }
     }
 ?>
