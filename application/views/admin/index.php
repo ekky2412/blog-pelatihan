@@ -4,7 +4,7 @@
         <h3>Berita Milikmu :</h3>
         <a class="ml-auto btn btn-success" href="<?= base_url() ?>admin/tambah">Tambah Data</a>
     </div>
-    <table class="table" id="table">
+    <table class="table table-striped table-bordered" id="table">
         <thead>
             <th>Judul Berita</th>
             <th>Isi Berita</th>
