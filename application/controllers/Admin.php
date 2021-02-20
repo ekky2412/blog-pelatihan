@@ -18,7 +18,7 @@
             $tabel['data'] = $this->model->getDataByName($namaAuthor); 
             $this->load->view('templates/header',$header);
             $this->load->view('admin/index',$tabel);
-            $this->load->view('templates/footer');
+            $this->load->view('templates/footeradmin');
             }
         }
 
