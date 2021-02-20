@@ -8,10 +8,9 @@
 
         public function index(){
             $session = $this->session->userdata('nama');
-            if(!empty($session)){
+            if(empty($session)){
                 redirect(base_url());
             }
-
             else{
             $header['judul'] = 'Halaman Admin';
             
@@ -21,7 +20,6 @@
             $this->load->view('admin/index',$tabel);
             $this->load->view('templates/footer');
             }
-            
         }
 
         public function tambah(){
