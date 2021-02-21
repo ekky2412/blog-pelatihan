@@ -1,7 +1,7 @@
  <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <nav class="mt-2 navbar bg-dark text-light">
+    <nav class="mt-3 navbar fixed-bottom bg-dark text-light">
       <div class="m-auto text-center">Copyright Rezky Putratama Raharjo 2021</div>
     </nav>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
