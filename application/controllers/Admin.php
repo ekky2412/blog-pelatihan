@@ -64,6 +64,7 @@
                 $header['judul'] = 'Edit Data';
 
             $isi['data'] = $this->model->getDataById($id,'berita');
+            $isi['id'] = $id;
 
             $this->load->view('templates/header',$header);
             $this->load->view('admin/edit',$isi);

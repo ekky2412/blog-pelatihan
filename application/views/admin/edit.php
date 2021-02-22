@@ -1,7 +1,7 @@
 <div class="container mt-3">
     <div class="justify-content-md-center col-6 bg-dark text-light p-3">
         <h1>Edit Data</h1>
-        <form action="<?= base_url()?>admin/editProses" method="post">
+        <form action="<?= base_url()?>admin/editProses/<?=$id?>" method="post">
             <div class="form-group">
                 <label for="judul">Judul Berita</label>
                 <input type="text" class="form-control" name="judul" id="judul" value="<?=$data['judul']?>">
