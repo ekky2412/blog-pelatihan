@@ -23,40 +23,83 @@
         }
 
         public function tambah(){
-            $header['judul'] = 'Tambah Data';
+            $session = $this->session->userdata('nama');
+            if(empty($session)){
+                redirect(base_url());
+            }
+            else{
+                $header['judul'] = 'Tambah Data';
 
-            $this->load->view('templates/header',$header);
-            $this->load->view('admin/tambah');
-            $this->load->view('templates/footer');
+                $this->load->view('templates/header',$header);
+                $this->load->view('admin/tambah');
+                $this->load->view('templates/footer');
         }
+    }
 
         public function tambahProses(){
-            $data = array(
-                'pesan' => $this->input->post('pesan'),
-                'judul' => $this->input->post('judul'),
-                'author' => $this->session->userdata('nama'),
-                'status_aktif' => '0'
-            );
-
-            $this->model->insert('berita',$data);
-            $this->session->set_flashdata('pesan','Data Berhasil Ditambahkan!');
-            redirect(base_url('Admin'));
+            $session = $this->session->userdata('nama');
+            if(empty($session)){
+                redirect(base_url());
+            }
+            else{
+                $data = array(
+                    'pesan' => $this->input->post('pesan'),
+                    'judul' => $this->input->post('judul'),
+                    'author' => $this->session->userdata('nama'),
+                    'status_aktif' => '0'
+                );
+    
+                $this->model->insert('berita',$data);
+                $this->session->set_flashdata('pesan','Data Berhasil Ditambahkan!');
+                redirect(base_url('Admin'));
+            }
         }
 
         public function edit($id){
-            $header['judul'] = 'Edit Data';
+            $session = $this->session->userdata('nama');
+            if(empty($session)){
+                redirect(base_url());
+            }
+            else{
+                $header['judul'] = 'Edit Data';
 
             $isi['data'] = $this->model->getDataById($id,'berita');
 
             $this->load->view('templates/header',$header);
             $this->load->view('admin/edit',$isi);
             $this->load->view('templates/footer');
+            }
+        }
+
+        public function editProses($id){
+            $session = $this->session->userdata('nama');
+            if(empty($session)){
+                redirect(base_url());
+            }
+            else{
+                $data = array(
+                    'pesan' => $this->input->post('pesan'),
+                    'judul' => $this->input->post('judul'),
+                    'author' => $this->session->userdata('nama')
+                );
+    
+                $this->model->update($id,$data);
+                $this->session->set_flashdata('pesan','Data Berhasil Diedit!');
+                redirect(base_url('Admin'));
+            }
+            
         }
 
         public function hapus($id){
-            $this->model->delete(array('id' => $id),'berita');
-            $this->session->set_flashdata('pesan','Data Berhasil dihapus!');
-            redirect(base_url('admin'));
+            $session = $this->session->userdata('nama');
+            if(empty($session)){
+                redirect(base_url());
+            }
+            else{
+                $this->model->delete(array('id' => $id),'berita');
+                $this->session->set_flashdata('pesan','Data Berhasil dihapus!');
+                redirect(base_url('admin'));
+            }
         }
 
         public function editAktif($id,$status){
@@ -71,4 +114,3 @@
             redirect(base_url());
         }
     }
-?>

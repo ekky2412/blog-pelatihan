@@ -43,6 +43,11 @@
                 'status_aktif' => $status
             ));
         }
+
+        public function update($id,$data){
+            $this->db->where('id',$id)
+                    ->update('berita',$data);
+        }
         
     }
 ?>
