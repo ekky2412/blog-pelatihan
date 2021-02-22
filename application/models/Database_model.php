@@ -12,6 +12,7 @@
 
         public function getDataByName($id){
             return $this->db
+                        ->order_by('id DESC')
                         ->get_where('berita',array(
                             'author' => $id
                         ))
